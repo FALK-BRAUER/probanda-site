@@ -11,7 +11,7 @@
 .pb.pb .page{width:1440px;overflow:hidden;position:relative;background:var(--paper)}
 .pb.pb .wrap{width:1200px;margin:0 auto}
 .pb.pb .serif{font-family:Newsreader,Georgia,serif;font-weight:500;letter-spacing:-.015em}
-.pb.pb .mono{font-family:"JetBrains Mono",Menlo,monospace}
+.pb.pb .mono{font-family:Inter,Arial,sans-serif;font-variant-numeric:tabular-nums}
 .pb.pb .eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--t)}
 .pb.pb .mut{color:var(--ink2)}
 .pb.pb .btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border-radius:999px;padding:12px 22px;font-weight:600;font-size:15px}
@@ -119,7 +119,7 @@ body{margin:0;background:#FBFAF6;color:#16211F;font-family:Inter,Arial,sans-seri
  <h1 class="serif" style="font-size:64px;line-height:1.04;margin-top:12px">Supplier bank details change</h1>
  <p class="lead" style="font-size:21px">The agent checks a request to change a supplier's bank details. It prepares the change. A person decides.</p>
  <div style="display:flex;gap:34px;margin-top:30px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14px">
-  <div><div class="mut">Business line</div><b>Procurement · accounts payable</b></div><div><div class="mut">MLCommons use case</div><b>no taxonomy entry</b></div><div><div class="mut">Autonomy tier*</div><b>T2 · steps with approval</b></div><div><div class="mut">Action classes*</div><b>A6 · commit internal</b></div><div><div class="mut">Last reviewed</div><b>Nov 2026</b></div>
+  <div><div class="mut">Business line</div><b>Procurement · accounts payable</b></div><div><div class="mut">MLCommons use case</div><b>no taxonomy entry</b></div><div><div class="mut">Autonomy*</div><b>Steps with approval</b></div><div><div class="mut">Type of action*</div><b>Changes internal records</b></div><div><div class="mut">Last reviewed</div><b>Nov 2026</b></div>
  </div>
  <div style="display:grid;grid-template-columns:230px 1fr;gap:60px;margin-top:50px">
   <div style="font-size:14px;line-height:2.2">
@@ -144,7 +144,7 @@ body{margin:0;background:#FBFAF6;color:#16211F;font-family:Inter,Arial,sans-seri
     <div class="gate" style="background:var(--paper2);color:var(--mut);height:200px">4 Act within scope<div style="font-weight:400;font-size:12px">not proposed</div></div>
    </div>
    <div style="background:var(--red2);border-radius:12px;padding:16px 18px;margin-top:14px;font-size:15px"><b style="color:var(--red)">Step back when:</b> a check is missing from the trace · approvals become reflex (override rate near zero) · model, prompt or tool change.</div>
-   <div class="mut" style="font-size:12px;margin-top:8px">Gates: progressive autonomy (Hogan, ARE Manifesto v1.0 draft); content ours. * Tier and classes: our estimate.</div>
+   <div class="mut" style="font-size:12px;margin-top:8px">Gates: progressive autonomy (Hogan, ARE Manifesto v1.0 draft); content ours. * Autonomy and type of action: our estimate.</div>
    <h2 class="serif" style="font-size:32px;margin-top:46px">Outcomes for this use case</h2>
    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px">
     <div class="card" style="padding:16px"><span class="chip" style="background:var(--red2);color:var(--red)">DENY</span><p style="font-size:14px;margin-top:8px">Request from an unknown sender, or a check missing</p></div>
@@ -155,7 +155,7 @@ body{margin:0;background:#FBFAF6;color:#16211F;font-family:Inter,Arial,sans-seri
    <h2 class="serif" style="font-size:32px;margin-top:46px">What the guidance says</h2>
    <table class="stack" style="margin-top:14px;background:#fff;border:1px solid var(--line)">
     <tbody><tr><th style="width:190px">Source</th><th>In short</th></tr>
-    <tr><td data-label="Source"><b>MLCommons ARP</b><div class="mut" style="font-size:12px">draft for comment</div></td><td data-label="In short">T2 needs evidence that approvals are real. Reflex approvals count as T3.</td></tr>
+    <tr><td data-label="Source"><b>MLCommons ARP</b><div class="mut" style="font-size:12px">draft for comment</div></td><td data-label="In short">Approval steps need evidence that the approvals are real. Rubber-stamp approvals count as if the agent acted alone.</td></tr>
     <tr><td data-label="Source"><b>ARE</b><div class="mut" style="font-size:12px">Hogan, ARE Manifesto v1.0 draft</div></td><td data-label="In short">Autonomy is earned step by step. Drift or a breach moves the agent back.</td></tr>
     <tr><td data-label="Source"><b>IMDA MGF Agentic v1.5</b><div class="mut" style="font-size:12px">pp. 29–30</div></td><td data-label="In short">Approval checkpoints. Track override rate and response time. Deny by default if approval fails.</td></tr>
    </tbody></table>
