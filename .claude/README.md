@@ -1,2 +1,2 @@
 # .claude
-Claude Code project settings: commands Claude may run here without asking (build, editor, test, git read/commit). `git push` still asks.
+Claude Code project settings (`settings.json`: commands Claude may run without asking; `git push` still asks) and project skills (`skills/probanda-design`: the site design system).

@@ -36,6 +36,10 @@ companies. Tone: calm, precise, senior. Short sentences, no hype, no engineering
 
 Navigation, header and footer are in `build.py` (`nav`, `page()`).
 
+## Design
+Use the project skill `probanda-design` (`.claude/skills/probanda-design/SKILL.md`) before adding or
+restyling any section, page, card, table or picture. Reuse existing blocks; colours only from the tokens.
+
 ## The editor (local preview where they change text themselves)
 Start it in the background: `python3 editor.py` → http://localhost:4321 (opens the browser).
 - **✎ Edit text**: click any text on the page and type; **Save** writes it into `src/pages/`.
