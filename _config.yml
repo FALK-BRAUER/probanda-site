@@ -1,2 +1,2 @@
 # GitHub Pages: publish only the generated site. Source, editor, tests and Claude instructions stay local/in the repo.
-exclude: [CLAUDE.md, README.md, build.py, editor.py, src, test, .claude, .gitignore, .edits.json]
+exclude: [CLAUDE.md, README.md, PRODUCT.md, DESIGN.md, .agents, build.py, editor.py, src, test, .claude, .gitignore, .edits.json]

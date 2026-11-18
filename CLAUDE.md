@@ -36,10 +36,18 @@ companies. Tone: calm, precise, senior. Short sentences, no hype, no engineering
 
 Navigation, header and footer are in `build.py` (`nav`, `page()`).
 
-## Design, UX and copy (project skills in `.claude/skills/`)
-- `probanda-design`: colours, type, components, product mockups, phone layout. Use before adding or restyling anything visual.
-- `probanda-ux`: visitors, page anatomy, calls to action, accessibility, SEO, review checklist. Use for new pages/sections and before publishing larger changes.
-- `probanda-copy`: voice, vocabulary, safe claims. Use for any text you write or rewrite.
+## Design, UX, copy, SEO (skills in `.claude/skills/`, context in `PRODUCT.md` + `DESIGN.md`)
+- **Read `PRODUCT.md` (what Probanda is, buyers, voice, words to use/avoid, claims rules) and `DESIGN.md`
+  (tokens, type, components, page anatomy, phone rules) before any content or design change.**
+- `ui-design` (vibe-hq standard, Impeccable + Vercel guidelines): any visual or layout change. Where it says
+  "Falk", read "the person you work with". Its mockup step = show the change in the editor preview or as
+  screenshots and get their yes. Its screenshot step = our layout test (`test/test.js`), not DevTools MCP.
+- `copywriting`, `copy-editing`: writing and tightening text. `cro`: improving a page so visitors take the next step.
+- `seo-audit`, `schema`, `site-architecture`: search visibility, structured data, page structure and navigation.
+- `product-marketing`: maintains the context doc (`.agents/product-marketing.md` → `PRODUCT.md`). Update
+  `PRODUCT.md` only when positioning really changes, and say so.
+- Marketing skills: vendored from coreyhaines31/marketingskills @73573e9 (MIT, `.claude/skills/MARKETINGSKILLS-LICENSE`),
+  without their evals. They never override `PRODUCT.md` site rules.
 
 ## The editor (local preview where they change text themselves)
 Start it in the background: `python3 editor.py` → http://localhost:4321 (opens the browser).
@@ -85,3 +93,7 @@ Undo: `git revert <commit>` and push; every earlier version is kept.
 - No prices ("on request"), no internal notes, costs, team or equity details.
 - Facts and numbers need a named source (like the Gartner figure on the home page).
 - If the user asks for something that breaks a rule, say which rule and offer a safe wording.
+
+## UI design
+- **UI work uses the `ui-design` skill** (`.claude/skills/ui-design`, source `~/vibe-hq/library/skills/ui/ui-design`): mockup → Falk yes → build → code check → audit/polish → screenshot check. No other UI/design skill.
+  (Deployed by vibe-hq `scripts/deploy-ui-design.sh`; do not edit the skill here.)
