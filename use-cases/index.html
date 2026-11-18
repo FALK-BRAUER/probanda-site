@@ -1,0 +1,131 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Use cases · probanda</title><meta name="description" content="Reliable, provable AI agents for business-critical work.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+.pb.pb h1,.pb.pb h2,.pb.pb h3,.pb.pb h4,.pb.pb h5,.pb.pb h6,.pb.pb p,.pb.pb li,.pb.pb a,.pb.pb span,.pb.pb b,.pb.pb td,.pb.pb th{color:inherit;text-transform:none;letter-spacing:inherit}
+.pb.pb h1,.pb.pb h2,.pb.pb h3,.pb.pb h4,.pb.pb h5{font-family:Inter,Arial,sans-serif;font-weight:600;line-height:1.15}
+.pb.pb{color:#16211F;font-family:Inter,Arial,sans-serif}
+.pb.pb, .pb.pb *{box-sizing:border-box;margin:0;padding:0}
+.pb.pb{--paper:#FAF8F3;--paper2:#F2EEE5;--ink:#16211F;--ink2:#47524F;--mut:#7A8480;--line:#E3DED3;--t:#1F6B67;--t2:#E4EFEC;--amb:#B7791F;--amb2:#F7ECD9;--red:#B4472F;--red2:#F6E3DD;--blue:#355F8C;--blue2:#E4EBF3;--night:#0F1B1A}
+.pb.pb{background:var(--paper);color:var(--ink);font:16px/1.55 Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.pb.pb .page{width:1440px;overflow:hidden;position:relative;background:var(--paper)}
+.pb.pb .wrap{width:1200px;margin:0 auto}
+.pb.pb .serif{font-family:Newsreader,Georgia,serif;font-weight:500;letter-spacing:-.015em}
+.pb.pb .mono{font-family:"JetBrains Mono",Menlo,monospace}
+.pb.pb .eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--t)}
+.pb.pb .mut{color:var(--ink2)}
+.pb.pb .btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border-radius:999px;padding:12px 22px;font-weight:600;font-size:15px}
+.pb.pb .btn.l{background:transparent;color:var(--ink);border:1px solid #CFC8BA}
+.pb.pb .bar{background:var(--night);color:#CFE3DF;font-size:14px;text-align:center;padding:10px}
+.pb.pb .bar b{color:#fff}
+.pb.pb nav.top{display:flex;align-items:center;gap:30px;height:72px;border-bottom:1px solid var(--line)}
+.pb.pb .logo{font:600 24px Newsreader,Georgia,serif;letter-spacing:-.02em}
+.pb.pb .logo i{font-style:normal;color:var(--t)}
+.pb.pb nav.top a{font-size:15px;color:var(--ink2)}
+.pb.pb nav.top a.on{color:var(--ink);font-weight:600}
+.pb.pb nav.top .r{margin-left:auto;display:flex;gap:18px;align-items:center}
+.pb.pb .chip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 11px;font-size:13px;font-weight:600}
+.pb.pb .tag{position:absolute;top:0;right:0;background:#FFE68A;color:#5A4500;font:600 12px Inter;padding:6px 12px;border-bottom-left-radius:8px;z-index:5}
+.pb.pb .sticky{position:absolute;background:#FFF6C2;border:1px dashed #C9A400;color:#5A4500;font-size:13px;padding:8px 11px;border-radius:6px;width:260px;z-index:6;line-height:1.4}
+.pb.pb section.s{padding:96px 0;border-top:1px solid var(--line)}
+.pb.pb h2.h{font-size:46px;line-height:1.08;margin-top:10px;max-width:760px}
+.pb.pb .lead{font-size:19px;color:var(--ink2);max-width:640px;margin-top:14px}
+.pb.pb .grid{display:grid;gap:20px}
+.pb.pb .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px}
+.pb.pb table{border-collapse:collapse;width:100%}
+.pb.pb td,.pb.pb th{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);font-size:15px;vertical-align:top}
+.pb.pb th{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);font-weight:600}
+.pb.pb .app{background:#fff;border:1px solid #D8D2C5;border-radius:14px;box-shadow:0 30px 60px -20px rgba(22,33,31,.25),0 2px 6px rgba(22,33,31,.06);overflow:hidden}
+.pb.pb .app .tb{height:40px;background:#F5F2EB;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:7px;padding:0 14px}
+.pb.pb .app .tb i{width:10px;height:10px;border-radius:50%;background:#D9D3C6;display:block}
+.pb.pb .dk{background:var(--night);color:#E7EFEC}
+.pb.pb footer{background:var(--night);color:#AFC2BE;padding:70px 0 40px;font-size:14px}
+.pb.pb footer h5{color:#fff;font-size:13px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:14px}
+.pb.pb footer li{list-style:none;margin:7px 0}
+.pb.pb .shot{background:#DCD8CF;padding:40px;width:1520px}
+.pb.pb .win{border-radius:14px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.18);width:1440px}
+.pb.pb .chrome{height:44px;background:#ECE9E2;border-bottom:1px solid #D5D0C5;display:flex;align-items:center;gap:8px;padding:0 16px}
+.pb.pb .chrome .d{width:12px;height:12px;border-radius:50%}
+.pb.pb .chrome .u{margin-left:90px;background:#fff;border-radius:8px;padding:5px 16px;font:13px Inter,sans-serif;color:#5F6A66;width:620px}
+.pb.pb .page{height:auto}
+.pb.pb .pill3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pb.pb .pl{border-radius:18px;padding:30px}
+.pb.pb .pl h3{font:500 40px Newsreader,Georgia,serif;letter-spacing:-.02em}
+.pb.pb .pl li{list-style:none;padding:9px 0;border-top:1px solid rgba(0,0,0,.08);font-size:16px}
+.pb.pb .oc{border-radius:14px;padding:20px}
+.pb.pb .oc b{font-size:13px;letter-spacing:.08em}
+.pb.pb .flow{display:flex;align-items:stretch;gap:0}
+.pb.pb .flow .n{flex:1;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 16px;font-size:14px}
+.pb.pb .flow .a{width:34px;display:grid;place-items:center;color:var(--mut);font-size:20px}
+.pb.pb .gate{border-radius:10px;padding:14px;font-weight:600;font-size:15px}
+.pb.pb .lvl{border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.pb.pb .dash{border:1.5px dashed #CFC8BA;background:transparent}
+.pb.pb .foot2{background:var(--night);color:#AFC2BE;padding:40px 0;margin-top:90px;font-size:14px}
+.pb{font-size:16px;line-height:1.55}
+.pb .page{width:100%!important;overflow:hidden}
+.pb .wrap{width:auto!important;max-width:1200px;margin:0 auto;padding:0 24px}
+.pb a{color:inherit;text-decoration:none}
+.pb img,.pb svg{max-width:100%}
+@media(max-width:900px){
+ .pb [style*="grid-template-columns"],.pb .pill3,.pb .grid{grid-template-columns:1fr!important}
+ .pb .flow{flex-direction:column}.pb .flow .a{width:auto;transform:rotate(90deg)}
+ .pb h1,.pb .serif[style*="font-size:6"],.pb .serif[style*="font-size:7"]{font-size:40px!important}
+ .pb h2.h{font-size:32px}
+ .pb section.s{padding:56px 0}
+ .pb table{display:block;overflow-x:auto}
+ .pb *{max-width:100%!important;min-width:0!important}
+ .pb{overflow-x:hidden}
+ .pb .app,.pb table,.pb pre{overflow-x:auto;display:block}
+ .pb .mono{word-break:break-word}
+ .pb [style*="white-space:nowrap"]{white-space:normal!important}
+ .pb [style*="display:flex"]{flex-wrap:wrap}
+}
+</style>
+<style>
+body{margin:0;background:#FBFAF6;color:#16211F;font-family:Inter,Arial,sans-serif}
+.sh{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;padding:22px max(16px,4vw);border-bottom:1px solid #E4E1D8;background:#FBFAF6}
+.sh a{color:#16211F;text-decoration:none}.sh .brand{font-family:Newsreader,Georgia,serif;font-size:28px;font-weight:500}
+.sh nav{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:15px}.sh nav a.on{text-decoration:underline;text-underline-offset:6px}
+.sf{padding:40px max(16px,4vw);background:#16211F;color:#E9E6DD;font-size:14px;line-height:1.6}.sf b{font-family:Newsreader,Georgia,serif;font-size:22px;font-weight:500;display:block;margin-bottom:6px}
+.ct{max-width:720px;margin:0 auto;padding:96px max(16px,4vw) 120px}.ct h1{font-family:Newsreader,Georgia,serif;font-weight:500;font-size:clamp(36px,5vw,56px);line-height:1.1;margin:0 0 20px}
+.ct p{font-size:18px;line-height:1.6;max-width:60ch}.ct a.mail{display:inline-block;margin-top:16px;padding:14px 22px;background:#16211F;color:#fff;border-radius:999px;text-decoration:none;font-weight:600}
+</style></head><body>
+<header class="sh"><a class="brand" href="/">probanda</a><nav><a href="/product/">Product</a><a href="/method/">Method</a><a href="/services/">Services</a><a href="/offer/">Offer</a><a href="/partners/">Partners</a><a href="/use-cases/" class=on>Use cases</a><a href="/contact/">Contact</a></nav></header>
+<main><div class="pb"><div class="pb-shot s-lib pp6"><div><div class="page p-lib" id="pg-lib"><div class="wrap"></div>
+<div class="wrap" style="padding-top:70px">
+ <div class="eyebrow">Use-case library</div>
+ <h1 class="serif" style="font-size:60px;line-height:1.05;margin-top:10px">Business-critical agent use cases,<br>by risk.</h1>
+ <p class="lead">What the agent may do. What it must never do. What your auditor will ask for. Tiers and action classes use the MLCommons Agent Reliability Profile vocabulary.</p>
+ <div style="display:grid;grid-template-columns:250px 1fr;gap:40px;margin-top:50px">
+  <div style="font-size:15px">
+   <div style="border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;color:var(--mut)">⌕ Search use cases</div>
+   <div class="eyebrow" style="font-size:11px;color:var(--mut);margin-top:26px">Business area</div>
+   <div style="line-height:2.1;margin-top:6px"><div>■ Finance <span class="mut" style="float:right">4</span></div><div>□ Procurement <span class="mut" style="float:right">2</span></div><div>□ Customer operations <span class="mut" style="float:right">2</span></div><div>□ HR <span class="mut" style="float:right">1</span></div><div>□ IT <span class="mut" style="float:right">1</span></div><div>□ Audit <span class="mut" style="float:right">1</span></div></div>
+   <div class="eyebrow" style="font-size:11px;color:var(--mut);margin-top:22px">Autonomy tier</div>
+   <div style="display:flex;gap:6px;margin-top:8px"><span class="chip" style="border:1px solid var(--line)">T1</span><span class="chip" style="background:var(--ink);color:#fff">T2</span><span class="chip" style="border:1px solid var(--line)">T3</span><span class="chip" style="border:1px solid var(--line)">T4</span></div>
+   <div class="eyebrow" style="font-size:11px;color:var(--mut);margin-top:22px">Framework</div>
+   <div style="line-height:2.1;margin-top:6px"><div>□ IMDA Agentic AI</div><div>□ ISO/IEC 42001</div><div>□ EU AI Act</div></div>
+  </div>
+  <div>
+   <div class="mut" style="font-size:14px;margin-bottom:12px">10 use cases · sorted by business area</div>
+   <table style="background:#fff;border:1px solid var(--line)">
+    <tbody><tr><th>Use case</th><th>Agent may</th><th>Never</th><th>Tier · action class*</th><th>Starts at</th></tr>
+    <tr><td><b>Supplier payments</b></td><td class="mut">Prepare the payment run</td><td class="mut">Pay an unchecked payee</td><td>T2 · A9 Move funds</td><td>Act with approval</td></tr>
+    <tr><td><b><a href="/use-cases-supplier-bank-details-change/" style="text-decoration:underline">Supplier bank details change</a></b></td><td class="mut">Check request, prepare change</td><td class="mut">Activate without call-back</td><td>T2 · A6 Commit internal</td><td>Act with approval</td></tr>
+    <tr><td><b>Financial close and reconciliation</b><div class="mono mut" style="font-size:12px">ODD.44</div></td><td class="mut">Match, propose postings</td><td class="mut">Post without approval</td><td>T2 · A6 Commit internal</td><td>Act with approval</td></tr>
+    <tr><td><b>Procurement and supplier review</b><div class="mono mut" style="font-size:12px">ODD.51</div></td><td class="mut">Check offers and suppliers</td><td class="mut">Award a contract</td><td>T2 · A4 Recommend</td><td>Observe</td></tr>
+    <tr><td><b>Customer refunds</b></td><td class="mut">Check claim, propose refund</td><td class="mut">Refund above its limit</td><td>T2 · A8 Transact, bounded</td><td>Act with approval</td></tr>
+    <tr><td><b>Warranty and service claims</b></td><td class="mut">Sort, request documents</td><td class="mut">Reject a claim</td><td>T2 · A5 Write internal</td><td>Observe</td></tr>
+    <tr><td><b>Regulatory reporting preparation</b><div class="mono mut" style="font-size:12px">ODD.45</div></td><td class="mut">Prepare the return</td><td class="mut">Submit it</td><td>T2 · A3 Draft for a person</td><td>Act with approval</td></tr>
+    <tr><td><b>HR changes</b><div class="mono mut" style="font-size:12px">ODD.52</div></td><td class="mut">Prepare pay and role changes</td><td class="mut">Change pay without approval</td><td>T2 · A6 Commit internal</td><td>Observe</td></tr>
+    <tr><td><b>IT access changes</b><div class="mono mut" style="font-size:12px">ODD.47</div></td><td class="mut">Prepare access requests</td><td class="mut">Grant admin rights</td><td>T2 · A11 Access change</td><td>Observe</td></tr>
+    <tr><td><b>Internal audit support</b><div class="mono mut" style="font-size:12px">ODD.50</div></td><td class="mut">Collect evidence, draft findings</td><td class="mut">Close a finding</td><td>T2 · A3 Draft for a person</td><td>Act with approval</td></tr>
+   </tbody></table>
+   <div class="mut" style="font-size:13px;margin-top:10px">* Our estimate. T2 = a person approves each consequential step. IDs from the MLCommons Agent Reliability Profile taxonomy (draft, CC BY 4.0), shown only where the entry fits.</div>
+  </div>
+ </div>
+</div>
+<div style="height:60px"></div></div></div></div>
+</div></main>
+<footer class="sf"><b>probanda</b>Reliable, provable AI agents for business-critical work.</footer>
+</body></html>
