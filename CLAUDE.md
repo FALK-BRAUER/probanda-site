@@ -36,9 +36,10 @@ companies. Tone: calm, precise, senior. Short sentences, no hype, no engineering
 
 Navigation, header and footer are in `build.py` (`nav`, `page()`).
 
-## Design
-Use the project skill `probanda-design` (`.claude/skills/probanda-design/SKILL.md`) before adding or
-restyling any section, page, card, table or picture. Reuse existing blocks; colours only from the tokens.
+## Design, UX and copy (project skills in `.claude/skills/`)
+- `probanda-design`: colours, type, components, product mockups, phone layout. Use before adding or restyling anything visual.
+- `probanda-ux`: visitors, page anatomy, calls to action, accessibility, SEO, review checklist. Use for new pages/sections and before publishing larger changes.
+- `probanda-copy`: voice, vocabulary, safe claims. Use for any text you write or rewrite.
 
 ## The editor (local preview where they change text themselves)
 Start it in the background: `python3 editor.py` → http://localhost:4321 (opens the browser).
