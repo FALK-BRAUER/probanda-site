@@ -1,5 +1,9 @@
 # probanda-site
 
-Static build of the probanda.ai website (v5.2), served by GitHub Pages at probanda.ai.
-Generated from the vault mockup `site-v5-2.html` by `build_static.py` (rainvent-ventures scratch); edit the source, rebuild, push.
-Only public site content goes here: no prices, no internal notes, no partner or customer names.
+Source and build of https://probanda.ai (GitHub Pages, served from `main`).
+
+- `src/` page content and styles (edit here) · `build.py` builds the pages at the root · `editor.py` local
+  preview with click-to-edit and find & replace · `test/` phone/desktop layout test.
+- Working with Claude Code: open Claude in this folder; `CLAUDE.md` tells it what the site is, how to
+  build, test and publish, and the content rules.
+- Generated folders at the root (`index.html`, `product/`, …) are never edited by hand.

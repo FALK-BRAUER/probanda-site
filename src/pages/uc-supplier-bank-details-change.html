@@ -1,0 +1,61 @@
+<div class="pb"><div class="pb-shot s-uc pp7"><div><div class="page p-uc" id="pg-uc"><div class="wrap"></div>
+<div class="wrap" style="padding-top:50px">
+ <div class="mut" style="font-size:14px"><a href="/use-cases">Use cases</a> / Procurement</div>
+ <h1 class="serif" style="font-size:64px;line-height:1.04;margin-top:12px">Supplier bank details change</h1>
+ <p class="lead" style="font-size:21px">The agent checks a request to change a supplier's bank details. It prepares the change. A person decides.</p>
+ <div style="display:flex;gap:34px;margin-top:30px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14px">
+  <div><div class="mut">Business line</div><b>Procurement · accounts payable</b></div><div><div class="mut">MLCommons use case</div><b>no taxonomy entry</b></div><div><div class="mut">Autonomy*</div><b>Steps with approval</b></div><div><div class="mut">Type of action*</div><b>Changes internal records</b></div><div><div class="mut">Last reviewed</div><b>Nov 2026</b></div>
+ </div>
+ <div style="display:grid;grid-template-columns:230px 1fr;gap:60px;margin-top:50px">
+  <div style="font-size:14px;line-height:2.2">
+   <div class="eyebrow" style="font-size:11px;color:var(--mut)">On this page</div>
+   <div style="border-left:2px solid var(--t);padding-left:12px;color:var(--t);font-weight:600;margin-top:6px">The problem</div>
+   <div style="border-left:2px solid var(--line);padding-left:12px">What the agent does</div><div style="border-left:2px solid var(--line);padding-left:12px">Autonomy gates</div><div style="border-left:2px solid var(--line);padding-left:12px">Outcomes</div><div style="border-left:2px solid var(--line);padding-left:12px">What the guidance says</div><div style="border-left:2px solid var(--line);padding-left:12px">Evidence for auditors</div>
+   <div class="card" style="margin-top:30px;padding:18px;line-height:1.5"><b>Piloting this?</b><p class="mut" style="margin-top:6px">We run it with you, in your environment.</p><a href="/contact" class="btn" style="margin-top:12px;padding:8px 14px;font-size:13px">Talk to us</a></div>
+  </div>
+  <div style="max-width:860px">
+   <h2 class="serif" style="font-size:32px">The problem</h2>
+   <p style="margin-top:12px;font-size:17px">Fake bank-detail changes are a common way to divert supplier payments. One wrong change can send the next payment run to a fraudster. Each change needs a check, a call-back and a named approver.</p>
+   <h2 class="serif" style="font-size:32px;margin-top:46px">What the agent does</h2>
+   <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+    <div class="card" style="border-top:3px solid var(--t)"><div class="eyebrow" style="font-size:11px">May</div><ul style="margin-top:10px;padding-left:18px;line-height:1.9"><li>Read the request and the supplier record</li><li>Run your checks: sender, history, open invoices</li><li>Prepare the change for approval</li></ul></div>
+    <div class="card" style="border-top:3px solid var(--red)"><div class="eyebrow" style="font-size:11px;color:var(--red)">Never</div><ul style="margin-top:10px;padding-left:18px;line-height:1.9"><li>Activate new details without a call-back</li><li>Use contact data from the request itself</li><li>Release a payment to new details</li></ul></div>
+   </div>
+   <h2 class="serif" style="font-size:32px;margin-top:46px">Autonomy gates</h2>
+   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px;align-items:end;height:200px">
+    <div class="gate" style="background:var(--blue2);color:var(--blue);height:80px">1 Readiness</div>
+    <div class="gate" style="background:var(--t2);color:var(--t);height:120px">2 Observe<div style="font-weight:400;font-size:12px;margin-top:4px">agent proposes, AP team compares</div></div>
+    <div class="gate" style="background:var(--t);color:#fff;height:160px">3 Act with approval<div style="font-weight:400;font-size:12px;margin-top:4px">← target · a person signs each change</div></div>
+    <div class="gate" style="background:var(--paper2);color:var(--mut);height:200px">4 Act within scope<div style="font-weight:400;font-size:12px">not proposed</div></div>
+   </div>
+   <div style="background:var(--red2);border-radius:12px;padding:16px 18px;margin-top:14px;font-size:15px"><b style="color:var(--red)">Step back when:</b> a check is missing from the trace · approvals become reflex (override rate near zero) · model, prompt or tool change.</div>
+   <div class="mut" style="font-size:12px;margin-top:8px">Gates: progressive autonomy (Hogan, ARE Manifesto v1.0 draft); content ours. * Autonomy and type of action: our estimate.</div>
+   <h2 class="serif" style="font-size:32px;margin-top:46px">Outcomes for this use case</h2>
+   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px">
+    <div class="card" style="padding:16px"><span class="chip" style="background:var(--red2);color:var(--red)">DENY</span><p style="font-size:14px;margin-top:8px">Request from an unknown sender, or a check missing</p></div>
+    <div class="card" style="padding:16px"><span class="chip" style="background:var(--amb2);color:var(--amb)">ESCALATE</span><p style="font-size:14px;margin-top:8px">Every change → AP lead, after call-back</p></div>
+    <div class="card" style="padding:16px"><span class="chip" style="background:var(--t2);color:var(--t)">AUTO</span><p style="font-size:14px;margin-top:8px">Read-only lookups in the supplier record</p></div>
+    <div class="card" style="padding:16px"><span class="chip" style="background:var(--blue2);color:var(--blue)">OBSERVE</span><p style="font-size:14px;margin-top:8px">New rules, before they may block</p></div>
+   </div>
+   <h2 class="serif" style="font-size:32px;margin-top:46px">What the guidance says</h2>
+   <table style="margin-top:14px;background:#fff;border:1px solid var(--line)">
+    <tbody><tr><th style="width:190px">Source</th><th>In short</th></tr>
+    <tr><td><b>MLCommons ARP</b><div class="mut" style="font-size:12px">draft for comment</div></td><td>Approval steps need evidence that the approvals are real. Rubber-stamp approvals count as if the agent acted alone.</td></tr>
+    <tr><td><b>ARE</b><div class="mut" style="font-size:12px">Hogan, ARE Manifesto v1.0 draft</div></td><td>Autonomy is earned step by step. Drift or a breach moves the agent back.</td></tr>
+    <tr><td><b>IMDA MGF Agentic v1.5</b><div class="mut" style="font-size:12px">pp. 29–30</div></td><td>Approval checkpoints. Track override rate and response time. Deny by default if approval fails.</td></tr>
+   </tbody></table>
+   <h2 class="serif" style="font-size:32px;margin-top:46px">Evidence for auditors</h2>
+   <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:16px">
+    <div class="card" style="padding:16px"><div class="mono" style="color:var(--t);font-weight:600">1</div><div style="font-size:14px;margin-top:6px">Request as received</div></div>
+    <div class="card" style="padding:16px"><div class="mono" style="color:var(--t);font-weight:600">2</div><div style="font-size:14px;margin-top:6px">Supplier record before and after</div></div>
+    <div class="card" style="padding:16px"><div class="mono" style="color:var(--t);font-weight:600">3</div><div style="font-size:14px;margin-top:6px">Call-back record</div></div>
+    <div class="card" style="padding:16px"><div class="mono" style="color:var(--t);font-weight:600">4</div><div style="font-size:14px;margin-top:6px">Approver, time, decision</div></div>
+    <div class="card" style="padding:16px"><div class="mono" style="color:var(--t);font-weight:600">5</div><div style="font-size:14px;margin-top:6px">ERP change record, matched</div></div>
+   </div>
+  </div>
+ </div>
+</div>
+<div style="height:60px"></div></div></div></div>
+
+</body></html>
+</div>

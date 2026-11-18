@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 build.py)",
+      "Bash(python3 editor.py:*)",
+      "Bash(python3 -m http.server:*)",
+      "Bash(cd test && npm install:*)",
+      "Bash(node test.js:*)",
+      "Bash(git pull:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(curl -s https://probanda.ai:*)"
+    ]
+  }
+}

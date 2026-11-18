@@ -1,0 +1,5 @@
+node_modules
+.shots/
+.edits.json
+.DS_Store
+__pycache__/
