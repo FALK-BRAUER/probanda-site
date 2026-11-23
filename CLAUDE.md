@@ -91,6 +91,7 @@ Undo: `git revert <commit>` and push; every earlier version is kept.
   MLCommons or the EU. Framework references are "mapped to" / "supports your assessment".
   The MLCommons Agent Reliability Profile is a draft: say so.
 - No prices ("on request"), no internal notes, costs, team or equity details.
+  Exception: founder names, roles, photos and short bios on the Who we are page, with each founder's consent (no employer names).
 - Facts and numbers need a named source (like the Gartner figure on the home page).
 - If the user asks for something that breaks a rule, say which rule and offer a safe wording.
 

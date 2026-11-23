@@ -94,5 +94,6 @@ Governance Framework for Agentic AI, AI Verify, MLCommons Agent Reliability Prof
 ## Site rules (public)
 - Mockups carry `ILLUSTRATIVE · fictional data`; every number in a mockup adds up.
 - No customer, partner or employer names; no logos without permission; no prices; no internal notes, costs, team or equity.
+  Exception: founder names, roles, photos and short bios on the Who we are page, with each founder's consent (no employer names).
 - Regulators and standards bodies: no claim of endorsement; MAS "expects", not "requires", unless quoting.
 - Real numbers need a named source and date. No promises of speed or results.
