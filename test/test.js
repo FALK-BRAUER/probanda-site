@@ -22,6 +22,7 @@ const pages = ['', 'product', 'how-we-work', 'services', 'use-cases', 'use-cases
         }
         // sibling overlap among element children
         for (const e of els) {
+          if (e.closest('svg')) continue; // text on shapes inside a drawing is intended
           const kids = [...e.children].filter(k => { const r = k.getBoundingClientRect(); return r.width > 4 && r.height > 4 && getComputedStyle(k).position !== 'absolute'; });
           for (let i = 0; i < kids.length; i++) for (let j = i + 1; j < kids.length; j++) {
             const a = kids[i].getBoundingClientRect(), c = kids[j].getBoundingClientRect();
