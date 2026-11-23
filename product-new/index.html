@@ -123,7 +123,10 @@ body{margin:0;background:#FFFFFF;color:#0E1B2D;font-family:Inter,Arial,sans-seri
  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px"><a href="/contact/" class="btn">Book a call →</a><a href="/contact/" class="btn l">Request a sample evidence pack</a></div>
 </div>
 
-<section class="s" style="margin-top:80px" id="where"><div class="wrap">
+<div class="wrap" style="margin-top:56px;text-align:center"><div class="mut" style="font-size:14px">Built on open reliability frameworks</div>
+ <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px 40px;margin-top:18px;font:500 19px Inter,Arial,sans-serif;color:#5F646A"><span>ARE</span><span>MLCommons ARP (draft)</span><span>IMDA Agentic AI</span><span>AI Verify</span><span>ISO/IEC 42001</span><span>EU AI Act</span></div></div>
+<p class="mut" style="text-align:center;font-size:13px;margin-top:10px">References, not endorsements.</p>
+<section class="s" style="margin-top:56px" id="where"><div class="wrap">
  <div class="eyebrow">Where it sits</div>
  <h2 class="h serif">On top of the tools you already run.</h2>
  <p class="lead">Your agents keep their platforms. Your identity platform still says who an agent is. Probanda adds the business decision and the ledger, and sends both to your monitoring and risk tools.</p>
@@ -181,21 +184,44 @@ body{margin:0;background:#FFFFFF;color:#0E1B2D;font-family:Inter,Arial,sans-seri
 <section class="s" id="autonomy"><div class="wrap">
  <div class="eyebrow">Autonomy</div><h2 class="h serif">Each agent earns its freedom, step by step.</h2><p class="lead">Evidence moves an agent up. Drift, a breach or a model change moves it back. Loosening a rule needs a test on past cases and two signatures.</p>
  <div class="grid" style="grid-template-columns:repeat(4,1fr);margin-top:36px">
-  <div class="card" style="background:var(--paper2)"><div class="mono" style="color:var(--mut);font-weight:600">1</div><b style="font-size:19px">Suggests</b><p class="mut" style="font-size:15px;margin-top:4px">The agent proposes. A person acts.</p></div>
-  <div class="card" style="background:var(--blue2)"><div class="mono" style="color:var(--blue);font-weight:600">2</div><b style="font-size:19px">Each step approved</b><p class="mut" style="font-size:15px;margin-top:4px">The agent acts after a named person says yes.</p></div>
-  <div class="card" style="background:var(--t2)"><div class="mono" style="color:var(--t);font-weight:600">3</div><b style="font-size:19px">Within limits</b><p class="mut" style="font-size:15px;margin-top:4px">Routine actions run alone. Risky ones go to a person.</p></div>
-  <div class="card" style="background:var(--night);color:#FFFFFF;border:none"><div class="mono" style="color:#2FD3C0;font-weight:600">4</div><b style="font-size:19px;color:#fff">Alone</b><p style="font-size:15px;margin-top:4px;color:#D6E2F2">Earned on evidence, per action. Taken back on drift.</p></div>
+  <div class="card" style="background:var(--paper2)"><div class="mono" style="color:var(--mut);font-weight:600">1 · ARP T0</div><b style="font-size:19px">Suggests</b><p class="mut" style="font-size:15px;margin-top:4px">The agent proposes. A person acts.</p></div>
+  <div class="card" style="background:var(--blue2)"><div class="mono" style="color:var(--blue);font-weight:600">2 · ARP T2</div><b style="font-size:19px">Each step approved</b><p class="mut" style="font-size:15px;margin-top:4px">The agent acts after a named person says yes.</p></div>
+  <div class="card" style="background:var(--t2)"><div class="mono" style="color:var(--t);font-weight:600">3 · ARP T3</div><b style="font-size:19px">Within limits</b><p class="mut" style="font-size:15px;margin-top:4px">Routine actions run alone. Risky ones go to a person.</p></div>
+  <div class="card" style="background:var(--night);color:#FFFFFF;border:none"><div class="mono" style="color:#2FD3C0;font-weight:600">4 · ARP T4</div><b style="font-size:19px;color:#fff">Alone</b><p style="font-size:15px;margin-top:4px;color:#D6E2F2">Earned on evidence, per action. Taken back on drift.</p></div>
  </div>
- <p class="mut" style="font-size:14px;margin-top:12px">Steps follow progressive autonomy (Hogan, ARE Manifesto v1.0 draft). See <a href="/how-we-work/#measure" style="color:var(--t)">How we work</a>.</p>
+ <p class="mut" style="font-size:14px;margin-top:12px">Steps follow progressive autonomy (Hogan, ARE Manifesto v1.0 draft). ARP tiers are our mapping to the draft MLCommons Agent Reliability Profile. See <a href="/how-we-work/#measure" style="color:var(--t)">How we work</a>.</p>
 </div></section>
 
-<section class="s" style="background:var(--paper2)" id="audit"><div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+<section class="s" style="background:var(--paper2)" id="arp"><div class="wrap">
+ <div class="eyebrow">Open standard</div>
+ <h2 class="h serif">Your Agent Reliability Profiles, kept valid as you run.</h2>
+ <p class="lead">The MLCommons Agent Reliability Profile (ARP) is an open format for describing one agent: what it may do, how much freedom it has, which controls surround it, and how well that is proven. Probanda fills it with evidence from the ledger and keeps it current.</p>
+ <div class="grid" style="grid-template-columns:repeat(4,1fr);margin-top:36px">
+  <div class="card" style="border-top:4px solid var(--t)"><b style="font-size:19px;display:block">Every agent listed</b><p style="margin-top:8px">Each agent in your inventory gets a one-line ARP entry: owner, autonomy tier, what it may and may never do.</p></div>
+  <div class="card" style="border-top:4px solid var(--ink)"><b style="font-size:19px;display:block">Evidence in the ARP format</b><p style="margin-top:8px">Every decision is hashed, signed and tagged with the agent's autonomy tier, action class and controls, as the ARP kit expects.</p></div>
+  <div class="card" style="border-top:4px solid var(--ink)"><b style="font-size:19px;display:block">From asserted to tested</b><p style="margin-top:8px">The ledger shows which controls actually held. That moves a profile from what the owner asserts to what your own tests show.</p></div>
+  <div class="card" style="border-top:4px solid var(--ink)"><b style="font-size:19px;display:block">Ready for an outside assessor</b><p style="margin-top:8px">Signed, reproducible evidence an independent assessor can re-check. We never assess our own evidence.</p></div>
+ </div>
+ <h3 style="font-size:22px;margin-top:56px">Continuous validity, not a one-off profile</h3>
+ <p class="mut" style="margin-top:6px;max-width:720px">A profile describes one agent at one point in time. Models, tools and scope change. Probanda watches for the changes that void a profile and tells you what to do.</p>
+ <div class="flow" style="margin-top:20px">
+  <div style="flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px"><div style="font-size:13px;font-weight:600;color:var(--t)">1 · Issue</div><b style="display:block;margin-top:4px">Profile signed</b><div class="mut" style="margin-top:4px;font-size:14px">Your owner signs. Probanda attaches the evidence.</div></div><div class="a" style="display:grid;place-items:center;color:var(--mut);font-size:20px;width:34px">→</div>
+  <div style="flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px"><div style="font-size:13px;font-weight:600;color:var(--t)">2 · Watch</div><b style="display:block;margin-top:4px">Changes detected</b><div class="mut" style="margin-top:4px;font-size:14px">New model, new tool, wider scope, a control removed, a new owner.</div></div><div class="a" style="display:grid;place-items:center;color:var(--mut);font-size:20px;width:34px">→</div>
+  <div style="flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px"><div style="font-size:13px;font-weight:600;color:var(--t)">3 · Flag</div><b style="display:block;margin-top:4px">Void or re-test</b><div class="mut" style="margin-top:4px;font-size:14px">Which profiles are void, which need a partial re-test, which changes are cosmetic.</div></div><div class="a" style="display:grid;place-items:center;color:var(--mut);font-size:20px;width:34px">→</div>
+  <div style="flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px"><div style="font-size:13px;font-weight:600;color:var(--t)">4 · Re-test</div><b style="display:block;margin-top:4px">Tested on history</b><div class="mut" style="margin-top:4px;font-size:14px">Re-run the checks on your recorded actions.</div></div><div class="a" style="display:grid;place-items:center;color:var(--mut);font-size:20px;width:34px">→</div>
+  <div style="flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px"><div style="font-size:13px;font-weight:600;color:var(--t)">5 · Reissue</div><b style="display:block;margin-top:4px">Signed again</b><div class="mut" style="margin-top:4px;font-size:14px">Before the validity window ends, or after a change.</div></div>
+ </div>
+ <p class="mut" style="font-size:13px;margin-top:14px">The ARP is a draft for comment by MLCommons, presented with IMDA and the AI Verify Foundation. It is not a score or a certification. Your organisation owns and signs each profile. Probanda is not endorsed by MLCommons, IMDA or the AI Verify Foundation.</p>
+</div></section>
+
+<section class="s" id="audit"><div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
  <div><div class="eyebrow">Evidence for audit</div><h2 class="h serif">Replay any decision. Hand your auditor a pack.</h2>
   <ul style="margin-top:22px;list-style:none">
    <li style="padding:7px 0"><b>Tamper-evident.</b> Every record signed and chained. Any edit shows.</li>
    <li style="padding:7px 0"><b>Complete.</b> Every change in your systems matched to a decision. Gaps flagged.</li>
    <li style="padding:7px 0"><b>Replayable.</b> Rebuild what happened, step by step.</li>
    <li style="padding:7px 0"><b>Tested on history.</b> Try any rule change on your real past actions before it goes live.</li>
+   <li style="padding:7px 0"><b>Mapped.</b> To the draft MLCommons Agent Reliability Profile, IMDA, ISO/IEC 42001 and the EU AI Act. Supports your own assessment.</li>
   </ul>
   <a href="/contact/" class="btn" style="margin-top:22px">Request a sample evidence pack →</a></div>
  <div class="card" style="padding:30px">
@@ -205,7 +231,7 @@ body{margin:0;background:#FFFFFF;color:#0E1B2D;font-family:Inter,Arial,sans-seri
 
 </div></section>
 
-<section class="s" id="operations"><div class="wrap">
+<section class="s" style="background:var(--paper2)" id="operations"><div class="wrap">
  <div class="eyebrow">What your teams see</div>
  <h2 class="h serif">One view of every agent, across your systems.</h2>
 </div>
