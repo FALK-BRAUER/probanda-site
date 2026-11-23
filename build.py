@@ -6,8 +6,9 @@ out = pathlib.Path(sys.argv[1]) if len(sys.argv)>1 else root
 css = (src/'probanda.css').read_text()
 pages = [('home','', 'Home'),('product','product','Product'),('method','method','Method'),('services','services','Services'),
          ('offer','offer','Offer'),('partners','partners','Partners'),('use-cases','use-cases','Use cases'),
-         ('uc-supplier-bank-details-change','use-cases-supplier-bank-details-change','Supplier bank details change')]
-nav = [('/product/','Product'),('/method/','Method'),('/services/','Services'),('/offer/','Offer'),('/partners/','Partners'),('/use-cases/','Use cases'),('/contact/','Contact')]
+         ('uc-supplier-bank-details-change','use-cases-supplier-bank-details-change','Supplier bank details change'),
+         ('who-we-are','who-we-are','Who we are')]
+nav = [('/product/','Product'),('/method/','Method'),('/services/','Services'),('/offer/','Offer'),('/partners/','Partners'),('/use-cases/','Use cases'),('/who-we-are/','Who we are'),('/contact/','Contact')]
 CHROME = """<style>
 body{margin:0;background:#FBFAF6;color:#16211F;font-family:Inter,Arial,sans-serif}
 .sh{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;padding:22px max(16px,4vw);border-bottom:1px solid #E4E1D8;background:#FBFAF6}
@@ -58,7 +59,7 @@ def stairs(h):
 def fix(h):
     h = stack(h)
     h = stairs(h)
-    h = re.sub(r'href="/(contact|partners|product|services|use-cases|method|offer|use-cases-supplier-bank-details-change)"', r'href="/\1/"', h)
+    h = re.sub(r'href="/(contact|partners|product|services|use-cases|method|offer|use-cases-supplier-bank-details-change|who-we-are)"', r'href="/\1/"', h)
     return h
 CONTACT = """<div class="ct"><h1>Talk to us.</h1><p>Tell us which agent and which business process you want to make reliable and provable.</p>
 <p>Email us at <b>falk@probanda.ai</b></p><a class="mail" href="mailto:falk@probanda.ai?subject=probanda">Write to us</a></div>"""
