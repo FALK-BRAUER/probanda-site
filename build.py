@@ -10,23 +10,24 @@ pages = [('home','', 'Home'),('product','product','Product'),('method','method',
          ('who-we-are','who-we-are','Who we are')]
 nav = [('/product/','Product'),('/method/','Method'),('/services/','Services'),('/offer/','Offer'),('/partners/','Partners'),('/use-cases/','Use cases'),('/who-we-are/','Who we are'),('/contact/','Contact')]
 CHROME = """<style>
-body{margin:0;background:#FBFAF6;color:#16211F;font-family:Inter,Arial,sans-serif}
-.sh{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;padding:22px max(16px,4vw);border-bottom:1px solid #E4E1D8;background:#FBFAF6}
-.sh a{color:#16211F;text-decoration:none}.sh .brand{font-family:Newsreader,Georgia,serif;font-size:28px;font-weight:500}
-.sh nav{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:15px}.sh nav a.on{text-decoration:underline;text-underline-offset:6px}
-.sf{padding:40px max(16px,4vw);background:#16211F;color:#E9E6DD;font-size:14px;line-height:1.6}.sf b{font-family:Newsreader,Georgia,serif;font-size:22px;font-weight:500;display:block;margin-bottom:6px}
-.ct{max-width:720px;margin:0 auto;padding:96px max(16px,4vw) 120px}.ct h1{font-family:Newsreader,Georgia,serif;font-weight:500;font-size:clamp(36px,5vw,56px);line-height:1.1;margin:0 0 20px}
-.ct p{font-size:18px;line-height:1.6;max-width:60ch}.ct a.mail{display:inline-block;margin-top:16px;padding:14px 22px;background:#16211F;color:#fff;border-radius:999px;text-decoration:none;font-weight:600}
+body{margin:0;background:#FFFFFF;color:#0E1B2D;font-family:Inter,Arial,sans-serif}
+.sh{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;padding:22px max(16px,4vw);border-bottom:1px solid #D3DCDB;background:#FFFFFF}
+.sh a{color:#0E1B2D;text-decoration:none}.sh .brand{display:flex;align-items:center}.sh .brand img{height:36px;width:auto;display:block}
+.sh nav{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:15px}.sh nav a.on{text-decoration:underline;text-decoration-color:#11786F;text-decoration-thickness:2px;text-underline-offset:6px}
+.sf{padding:40px max(16px,4vw);background:#0E1B2D;color:#D6E2F2;font-size:14px;line-height:1.6;display:flex;flex-wrap:wrap;gap:16px 40px;align-items:flex-end;justify-content:space-between}.sf img{height:36px;width:auto;display:block;margin-bottom:12px}.sf .tl{color:#2FD3C0;font-weight:500}
+.ct{max-width:720px;margin:0 auto;padding:96px max(16px,4vw) 120px}.ct h1{font-family:Inter,Arial,sans-serif;font-weight:600;letter-spacing:-.02em;font-size:clamp(36px,5vw,56px);line-height:1.1;margin:0 0 20px}
+.ct p{font-size:18px;line-height:1.6;max-width:60ch}.ct a.mail{display:inline-block;margin-top:16px;padding:14px 22px;background:#0E1B2D;color:#fff;border-radius:999px;text-decoration:none;font-weight:600}
 .stairs-m{display:none}\n@media(max-width:900px){.pb svg[viewBox="0 0 1200 230"],.pb svg[viewBox="0 0 700 240"]{display:none!important}.stairs-m{display:flex;flex-direction:column-reverse;gap:6px;list-style:none;padding:0!important;margin:20px 0 0!important}.stairs-m li{border-radius:8px;padding:10px 14px!important;margin:0!important;font-size:14px}.stairs-m li span{display:block;font-size:12px;opacity:.85;margin-top:2px}}\n</style>"""
 def page(title, slug, body):
     links = ''.join(f'<a href="{h}"{" class=on" if h.strip("/")==slug else ""}>{t}</a>' for h,t in nav)
-    t = 'probanda' if not slug else f'{title} · probanda'
+    t = 'Probanda AI' if not slug else f'{title} · Probanda AI'
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{t}</title><meta name="description" content="Reliable, provable AI agents for business-critical work.">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 {css}{CHROME}</head><body>
-<header class="sh"><a class="brand" href="/">probanda</a><nav>{links}</nav></header>
+<header class="sh"><a class="brand" href="/" aria-label="Probanda AI home"><img src="/assets/probanda-lockup-on-light.svg" alt="Probanda AI" width="150" height="32"></a><nav>{links}</nav></header>
 <main>{body}</main>
-<footer class="sf"><b>probanda</b>Reliable, provable AI agents for business-critical work.</footer>
+<footer class="sf"><div><img src="/assets/probanda-lockup-on-dark.svg" alt="Probanda AI" width="150" height="32">AI agent governance. Reliable, provable AI agents for business-critical work.</div><div class="tl">Proof, complete.</div></footer>
 </body></html>"""
 def stack(h):
     def one(m):

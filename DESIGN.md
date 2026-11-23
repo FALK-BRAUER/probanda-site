@@ -5,24 +5,29 @@ annual report / audit committee paper, not a startup landing page. Refinements k
 Source of truth for styles: `src/probanda.css` (scoped under `.pb.pb`). Reuse existing blocks from
 `src/pages/` before inventing new ones.
 
-## Colour tokens (CSS variables; no new hex values)
+## Colour tokens (CSS variables; from the Probanda AI brand kit v2, Drive `08-brand`)
 | Token | Value | Use |
 |---|---|---|
-| `--paper` / `--paper2` | #FAF8F3 / #F2EEE5 | page background / alternate band |
-| `--ink` / `--ink2` / `--mut` | #16211F / #47524F / #7A8480 | text / secondary / labels (lightest allowed for small text) |
-| `--line` | #E3DED3 | borders, dividers |
-| `--t` / `--t2` | #1F6B67 / #E4EFEC | teal accent: eyebrows, links, "met" |
-| `--amb` / `--amb2` | #B7791F / #F7ECD9 | person decides, sent back, risky |
-| `--red` / `--red2` | #B4472F / #F6E3DD | blocked, breach, exception |
-| `--blue` / `--blue2` | #355F8C / #E4EBF3 | frameworks, second panel |
-| `--night` | #0F1B1A | top bar, dark panels |
-| green (inline) | #2E8A57 on #E3F1E8 | done, allowed, met |
-Status colours carry meaning only; status is never colour-only (pills always carry a word).
+| `--paper` / `--paper2` | #FFFFFF / #EEF2F3 | page background (white, ~80%) / quiet panels (brand `surface`) |
+| `--ink` / `--ink2` / `--mut` | #0E1B2D / #5F646A / #5F646A | navy text / secondary / labels (brand `ink`, `ink-muted`) |
+| `--line` | #D3DCDB | hairlines (brand `rule`) |
+| `--t` / `--t2` | #11786F / #E3F0EE | teal accent on white: eyebrows, links, the square, "met" |
+| `--mint` | #2FD3C0 | accent on navy only; never on white |
+| `--night` / `--blue` | #0E1B2D | navy: top bar, dark panels, footer (no pure black) |
+| `--blue2` | #EEF2F3 | quiet panel (alias of surface) |
+| `--amb` / `--amb2` | #B7791F / #F7ECD9 | status only: person decides, sent back, risky |
+| `--red` / `--red2` | #B4472F / #F6E3DD | status only: blocked, breach, exception |
+| green (inline) | #2E8A57 on #E3F1E8 | status only: done, allowed, met |
+Teal on white, mint on navy. One accent per block. Status colours carry meaning only and always with a word.
+No gradients, no shadows.
 
-## Type
-- Headlines `serif` (Newsreader 500, tight tracking): h1 64-72px desktop, section h2 44-52px.
-- Body Inter 16px/1.55; intro `lead` 19px `--ink2`, max 640px. Labels `eyebrow` 13px caps teal.
-- Numbers `mono` (Inter, tabular figures). Minimum 13px anywhere, 16px running text, lines ≤ ~70 characters.
+## Type and signature
+- Inter only (400/500/600). Headlines 600, tracking -0.02em (`.serif` now maps to this): h1 64-72px, section h2 44-52px.
+- Body Inter 16px/1.55; intro `lead` 19px `--ink2`, max 640px. Labels `eyebrow` 14px 600 teal, sentence case.
+- Sentence case everywhere; no all-caps headlines or labels.
+- The brand square (teal on white, mint on navy) ends the hero title only, once per page.
+- Logo: `assets/probanda-lockup-on-light.svg` in the header, `-on-dark` in the footer; favicon from the kit.
+  Name is "Probanda AI"; tagline "Proof, complete." once, in the footer.
 
 ## Components
 `.wrap` 1200px · `.grid` + inline columns, gap 20 · `.card` white, 1px `--line`, radius 16, padding 26 ·

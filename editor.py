@@ -200,6 +200,12 @@ class Handler(BaseHTTPRequestHandler):
         path = self.path.split('?')[0]
         if path == '/api/changes':
             return self.send(200, json.dumps(changes()), 'application/json')
+        if path.startswith('/assets/') or path == '/favicon.ico':
+            f = (build.root / path.lstrip('/')).resolve()
+            if f.is_file() and build.root in f.parents:
+                ct = {'.svg': 'image/svg+xml', '.png': 'image/png', '.ico': 'image/x-icon'}.get(f.suffix, 'application/octet-stream')
+                return self.send(200, f.read_bytes(), ct)
+            return self.send(404, 'not found', 'text/plain')
         slug = path.strip('/')
         page = build.render(slug)
         if page is None:
