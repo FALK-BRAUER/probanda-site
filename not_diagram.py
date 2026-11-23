@@ -4,7 +4,7 @@ import pathlib, re
 from hub_diagram import T, B, MARK, NAVY, TEAL, MINT, MUT, GREY
 R = pathlib.Path(__file__).resolve().parent
 LEFT = [('Not an agent platform','Your agents keep theirs.'),('Not another registry','Pulls from the ones you have.'),('Not an identity platform','Reads yours on every call.'),('Not a gateway replacement','Works through yours.')]
-RIGHT = [('Not an AI control tower','Feeds it evidence and status.'),('Not a monitoring tool','Feeds the one you have.'),('Not model testing','Gives your testers evidence.'),('Not a certifier','Your assessors decide.')]
+RIGHT = [('Not an AI control tower','Feeds it evidence and status.'),('Not a monitoring tool','Feeds the one you have.'),('Not a model testing tool','Shows testers what agents did.'),('Not a certifier','Your assessors decide.')]
 DOES = [('Know','One view of every agent.','Unknown agents can’t act.'),('Check','Each write, before it runs.','Risky actions go to a person.'),('Prove','Replay any decision.','Your auditor checks it offline.')]
 def dash(x,y,w,h): return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="#fff" stroke="{GREY}" stroke-width="2" stroke-dasharray="6 5"/>'
 def arrow(x,y): return f'<path d="M{x} {y}h20" stroke="{TEAL}" stroke-width="2.5"/><path d="M{x+18} {y-6}l12 6l-12 6z" fill="{TEAL}"/>'
