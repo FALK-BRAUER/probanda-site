@@ -5,12 +5,13 @@ src = root/'src'
 out = pathlib.Path(sys.argv[1]) if len(sys.argv)>1 else root
 css = (src/'probanda.css').read_text()
 pages = [('home','', 'Home'),('product','product','Product'),('how-we-work','how-we-work','How we work'),
-         ('partners','partners','Partners'),('use-cases','use-cases','Use cases'),
+         # ('partners','partners','Partners'),  hidden for now (src/pages/partners.html kept)
+        ('use-cases','use-cases','Use cases'),
          ('uc-supplier-bank-details-change','use-cases-supplier-bank-details-change','Supplier bank details change'),
          ('who-we-are','who-we-are','Who we are')]
-nav = [('/product/','Product'),('/use-cases/','Use cases'),('/how-we-work/','How we work'),('/partners/','Partners'),('/who-we-are/','Who we are')]
+nav = [('/product/','Product'),('/use-cases/','Use cases'),('/how-we-work/','How we work'),('/who-we-are/','Who we are')]
 # Old pages merged into How we work: the address still works and forwards there.
-REDIRECTS = {'method':'/how-we-work/#measure','services':'/how-we-work/','offer':'/how-we-work/#path'}
+REDIRECTS = {'method':'/how-we-work/#measure','services':'/how-we-work/','offer':'/how-we-work/#path','partners':'/how-we-work/#partners'}
 CHROME = """<style>
 body{margin:0;background:#FFFFFF;color:#0E1B2D;font-family:Inter,Arial,sans-serif}
 .sh{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;padding:22px max(16px,4vw);border-bottom:1px solid #D3DCDB;background:#FFFFFF}
