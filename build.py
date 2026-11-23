@@ -4,14 +4,16 @@ root = pathlib.Path(__file__).resolve().parent
 src = root/'src'
 out = pathlib.Path(sys.argv[1]) if len(sys.argv)>1 else root
 css = (src/'probanda.css').read_text()
-pages = [('home','', 'Home'),('product','product','Product'),('how-we-work','how-we-work','How we work'),
+pages = [('home','', 'Home'),('product','product','Product'),('how-we-work','how-we-work','How we work'),('services','services','Services'),
          # ('partners','partners','Partners'),  hidden for now (src/pages/partners.html kept)
         ('use-cases','use-cases','Use cases'),
          ('uc-supplier-bank-details-change','use-cases-supplier-bank-details-change','Supplier bank details change'),
-         ('who-we-are','who-we-are','Who we are')]
-nav = [('/product/','Product'),('/use-cases/','Use cases'),('/how-we-work/','How we work'),('/who-we-are/','Who we are')]
+         ('who-we-are','who-we-are','Who we are'),
+         ('product-new','product-new','Product')]  # draft, not in the menu
+HIDDEN = {'product-new'}  # built but not in the menu, kept out of search engines
+nav = [('/product/','Product'),('/use-cases/','Use cases'),('/how-we-work/','How we work'),('/services/','Services'),('/who-we-are/','Who we are')]
 # Old pages merged into How we work: the address still works and forwards there.
-REDIRECTS = {'method':'/how-we-work/#measure','services':'/how-we-work/','offer':'/how-we-work/#path','partners':'/how-we-work/#partners'}
+REDIRECTS = {'method':'/how-we-work/#measure','offer':'/how-we-work/#path','partners':'/how-we-work/#partners'}
 CHROME = """<style>
 body{margin:0;background:#FFFFFF;color:#0E1B2D;font-family:Inter,Arial,sans-serif}
 .sh{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;padding:22px max(16px,4vw);border-bottom:1px solid #D3DCDB;background:#FFFFFF}
@@ -26,7 +28,7 @@ def page(title, slug, body):
     t = 'Probanda AI' if not slug else f'{title} · Probanda AI'
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{t}</title><meta name="description" content="Reliable, provable AI agents for business-critical work.">
-<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+{'<meta name="robots" content="noindex">' if slug in HIDDEN else ''}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 {css}{CHROME}</head><body>
 <header class="sh"><a class="brand" href="/" aria-label="Probanda AI home"><img src="/assets/probanda-lockup-on-light.svg" alt="Probanda AI" width="150" height="32"></a><nav>{links}<a class="cta{' on' if slug=='contact' else ''}" href="/contact/">Book a call</a></nav></header>
 <main>{body}</main>
@@ -63,7 +65,7 @@ def stairs(h):
 def fix(h):
     h = stack(h)
     h = stairs(h)
-    h = re.sub(r'href="/(contact|partners|product|how-we-work|use-cases|use-cases-supplier-bank-details-change|who-we-are)"', r'href="/\1/"', h)
+    h = re.sub(r'href="/(contact|partners|product|how-we-work|services|use-cases|use-cases-supplier-bank-details-change|who-we-are)"', r'href="/\1/"', h)
     return h
 CONTACT = """<div class="ct"><h1>Talk to us.</h1><p>Tell us which agent and which business process you want to make reliable and provable.</p>
 <p>Email us at <b>falk@probanda.ai</b></p><a class="mail" href="mailto:falk@probanda.ai?subject=probanda">Write to us</a></div>"""

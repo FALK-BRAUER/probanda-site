@@ -1,6 +1,6 @@
 const { chromium } = require('playwright-core');
 const base = process.argv[2], out = process.argv[3];
-const pages = ['', 'product', 'how-we-work', 'use-cases', 'use-cases-supplier-bank-details-change', 'who-we-are', 'contact'];
+const pages = ['', 'product', 'how-we-work', 'services', 'use-cases', 'use-cases-supplier-bank-details-change', 'who-we-are', 'product-new', 'contact'];
 (async () => {
   const b = await chromium.launch({ channel: 'chrome' });
   for (const [label, vp] of [['m', { width: 390, height: 844 }], ['d', { width: 1440, height: 900 }]]) {
