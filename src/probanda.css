@@ -98,4 +98,5 @@
  .pb [style*="white-space:nowrap"]{white-space:normal!important}
  .pb [style*="display:flex"]{flex-wrap:wrap}
 }
+@media (min-width:640px){.pb.pb .pill3.kcp{grid-template-columns:repeat(3,1fr)!important}.pb.pb .pill3.kcp .pl{padding:22px}.pb.pb .pill3.kcp .pl h3{font-size:32px}}
 </style>
