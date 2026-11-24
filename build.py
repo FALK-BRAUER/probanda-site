@@ -6,14 +6,14 @@ out = pathlib.Path(sys.argv[1]) if len(sys.argv)>1 else root
 css = (src/'probanda.css').read_text()
 pages = [('home','', 'Home'),('product','product','Product'),('how-we-work','how-we-work','How we work'),('services','services','Services'),
          # ('partners','partners','Partners'),  hidden for now (src/pages/partners.html kept)
-        ('use-cases','use-cases','Use cases'),
-         ('uc-supplier-bank-details-change','use-cases-supplier-bank-details-change','Supplier bank details change'),
+        # ('use-cases','use-cases','Use cases'),  hidden for now (src/pages/use-cases.html kept)
+         # ('uc-supplier-bank-details-change','use-cases-supplier-bank-details-change','Supplier bank details change'),  hidden for now
          ('who-we-are','who-we-are','Who we are'),
          ('product-old','product-old','Product (previous)')]  # previous product page, not in the menu
 HIDDEN = {'product-old'}  # built but not in the menu, kept out of search engines
-nav = [('/product/','Product'),('/use-cases/','Use cases'),('/how-we-work/','How we work'),('/services/','Services'),('/who-we-are/','Who we are')]
+nav = [('/product/','Product'),('/how-we-work/','How we work'),('/services/','Services'),('/who-we-are/','Who we are')]
 # Old pages merged into How we work: the address still works and forwards there.
-REDIRECTS = {'method':'/how-we-work/#measure','offer':'/how-we-work/#path','partners':'/how-we-work/#partners','product-new':'/product/'}
+REDIRECTS = {'method':'/how-we-work/#measure','offer':'/how-we-work/#path','partners':'/how-we-work/#partners','product-new':'/product/','use-cases':'/product/#usecases','use-cases-supplier-bank-details-change':'/product/#usecases'}
 CHROME = """<style>
 body{margin:0;background:#FFFFFF;color:#0E1B2D;font-family:Inter,Arial,sans-serif}
 .sh{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;padding:22px max(16px,4vw);border-bottom:1px solid #D3DCDB;background:#FFFFFF}
