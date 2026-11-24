@@ -69,7 +69,7 @@ def fix(h):
     h = re.sub(r'href="/(contact|partners|product|how-we-work|services|use-cases|use-cases-supplier-bank-details-change|who-we-are)"', r'href="/\1/"', h)
     return h
 CONTACT = """<div class="ct"><h1>Talk to us.</h1><p>Tell us which agent and which business process you want to make reliable and provable.</p>
-<div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px 20px;margin-top:28px"><p><b>Email the founders</b></p><a class="mail" style="margin-top:0" href="mailto:khor@probanda.ai,falk@probanda.ai?subject=probanda">Write to us</a></div></div>"""
+<a class="mail" style="margin-top:28px" href="mailto:khor@probanda.ai,falk@probanda.ai?subject=probanda">Email the founders</a></div>"""
 NOT_FOUND = '<div class="ct"><h1>Page not found.</h1><p><a href="/">Back to home</a></p></div>'
 
 def css_now():
