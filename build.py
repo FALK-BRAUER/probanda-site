@@ -29,6 +29,7 @@ SEO = {
  'contact': ('Talk to us · Probanda AI',
       'Tell us which AI agent and which business process you want to make reliable and provable.'),
 }
+GSV = '<meta name="google-site-verification" content="YXXgV3fMW7yJNhOiOThVsNsonqOfg31pOzle11p3E3s">'  # Google Search Console ownership; keep
 SITEMAP = ['', 'product', 'how-we-work', 'who-we-are', 'contact']
 ORG = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Probanda AI","url":"https://probanda.ai/","logo":"https://probanda.ai/assets/apple-touch-icon.png","description":"AI agent governance. Probanda Safeguard checks, records and proves every AI agent action."}</script>'
 CHROME = """<style>
@@ -47,7 +48,7 @@ def page(title, slug, body):
     meta = '' if slug in HIDDEN or slug == '404' else (f'<link rel="canonical" href="{url}"><meta property="og:type" content="website"><meta property="og:site_name" content="Probanda AI">'
             f'<meta property="og:title" content="{t}"><meta property="og:description" content="{desc}"><meta property="og:url" content="{url}">'
             f'<meta property="og:image" content="{SITE}/assets/share.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">'
-            f'<meta name="twitter:card" content="summary_large_image">' + (ORG if not slug else ''))
+            f'<meta name="twitter:card" content="summary_large_image">' + (ORG + GSV if not slug else ''))
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{t}</title><meta name="description" content="{desc}">{meta}
 {'<meta name="robots" content="noindex">' if slug in HIDDEN or slug == '404' else ''}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
