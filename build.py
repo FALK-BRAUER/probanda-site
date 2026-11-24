@@ -15,6 +15,22 @@ HIDDEN = {'product-old'}  # built but not in the menu, kept out of search engine
 nav = [('/product/','Product'),('/how-we-work/','How we work'),('/who-we-are/','Who we are')]
 # Old pages merged into How we work: the address still works and forwards there.
 REDIRECTS = {'method':'/how-we-work/#measure','offer':'/how-we-work/#path','partners':'/how-we-work/#partners','product-new':'/product/','services':'/how-we-work/#more','use-cases':'/product/#usecases','use-cases-supplier-bank-details-change':'/product/#usecases'}
+SITE = 'https://probanda.ai'
+# Search and sharing: title shown in Google and on link previews, plus the line under it.
+SEO = {
+ '': ('Probanda AI · Govern and prove every AI agent action',
+      'Run AI agents on business-critical work. Probanda Safeguard checks each agent action before it reaches your ERP, CRM or finance systems, and keeps a record your auditor can verify.'),
+ 'product': ('Probanda Safeguard · accountability ledger for AI agents',
+      'Probanda Safeguard checks every AI agent action before it runs, records it in a tamper-evident ledger, and lets you replay any decision. Works with your identity platform, gateways and monitoring.'),
+ 'how-we-work': ('How we work · Build or govern AI agents · Probanda AI',
+      'Build new AI agents or govern the ones you already run. One process at a time, with a sign-off at every step, until your agents are governed and ready for production.'),
+ 'who-we-are': ('Who we are · Probanda AI',
+      'Probanda is Latin for “things that must be proved”. Meet the team that makes every AI agent action checked, recorded and provable.'),
+ 'contact': ('Talk to us · Probanda AI',
+      'Tell us which AI agent and which business process you want to make reliable and provable.'),
+}
+SITEMAP = ['', 'product', 'how-we-work', 'who-we-are', 'contact']
+ORG = '<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Probanda AI","url":"https://probanda.ai/","logo":"https://probanda.ai/assets/apple-touch-icon.png","description":"AI agent governance. Probanda Safeguard checks, records and proves every AI agent action."}</script>'
 CHROME = """<style>
 body{margin:0;background:#FFFFFF;color:#0E1B2D;font-family:Inter,Arial,sans-serif}
 .sh{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;padding:22px max(16px,4vw);border-bottom:1px solid #D3DCDB;background:#FFFFFF}
@@ -26,10 +42,15 @@ body{margin:0;background:#FFFFFF;color:#0E1B2D;font-family:Inter,Arial,sans-seri
 .stairs-m{display:none}\n@media(max-width:900px){.pb svg[viewBox="0 0 1200 230"],.pb svg[viewBox="0 0 700 240"]{display:none!important}.stairs-m{display:flex;flex-direction:column-reverse;gap:6px;list-style:none;padding:0!important;margin:20px 0 0!important}.stairs-m li{border-radius:8px;padding:10px 14px!important;margin:0!important;font-size:14px}.stairs-m li span{display:block;font-size:12px;opacity:.85;margin-top:2px}}\n</style>"""
 def page(title, slug, body):
     links = ''.join(f'<a href="{h}"{" class=on" if h.strip("/")==slug else ""}>{t}</a>' for h,t in nav)
-    t = 'Probanda AI' if not slug else f'{title} · Probanda AI'
+    t, desc = SEO.get(slug, ('Probanda AI' if not slug else f'{title} · Probanda AI', 'Reliable, provable AI agents for business-critical work.'))
+    url = SITE + '/' + (slug + '/' if slug else '')
+    meta = '' if slug in HIDDEN or slug == '404' else (f'<link rel="canonical" href="{url}"><meta property="og:type" content="website"><meta property="og:site_name" content="Probanda AI">'
+            f'<meta property="og:title" content="{t}"><meta property="og:description" content="{desc}"><meta property="og:url" content="{url}">'
+            f'<meta property="og:image" content="{SITE}/assets/share.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">'
+            f'<meta name="twitter:card" content="summary_large_image">' + (ORG if not slug else ''))
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{t}</title><meta name="description" content="Reliable, provable AI agents for business-critical work.">
-{'<meta name="robots" content="noindex">' if slug in HIDDEN else ''}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<title>{t}</title><meta name="description" content="{desc}">{meta}
+{'<meta name="robots" content="noindex">' if slug in HIDDEN or slug == '404' else ''}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 {css}{CHROME}</head><body>
 <header class="sh"><a class="brand" href="/" aria-label="Probanda AI home"><img src="/assets/probanda-lockup-on-light.svg" alt="Probanda AI" width="150" height="32"></a><nav>{links}<a class="cta{' on' if slug=='contact' else ''}" href="/contact/">Book a call</a></nav></header>
 <main>{body}</main>
@@ -92,10 +113,13 @@ def main(out):
         (d/'index.html').write_text(render(slug))
     (out/'contact').mkdir(exist_ok=True); (out/'contact'/'index.html').write_text(render('contact'))
     (out/'CNAME').write_text('probanda.ai\n')
+    (out/'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n')
+    (out/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + ''.join(f'  <url><loc>{SITE}/{s + "/" if s else ""}</loc></url>\n' for s in SITEMAP) + '</urlset>\n')
     (out/'404.html').write_text(page('Not found','404',NOT_FOUND))
     for old, to in REDIRECTS.items():
         d = out/old; d.mkdir(exist_ok=True)
-        (d/'index.html').write_text(f'<!doctype html><meta charset="utf-8"><title>Moved</title><link rel="canonical" href="{to}"><meta http-equiv="refresh" content="0; url={to}"><a href="{to}">This page has moved.</a>')
+        (d/'index.html').write_text(f'<!doctype html><meta charset="utf-8"><title>Moved</title><link rel="canonical" href="{SITE}{to}"><meta http-equiv="refresh" content="0; url={to}"><a href="{to}">This page has moved.</a>')
     print('ok')
 
 if __name__ == '__main__':
